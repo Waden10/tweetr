@@ -12,14 +12,33 @@ html {
 
 /*
  * Global layout stuff
+ *//*
  */
 
 body {
-  margin: 0;
+  margin: 5;
   color: #244751;
   background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ main {
+
+    width: 450px;
+    margin: 140px auto;
+    color: black;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 10px;
+    /*text-decoration: underline;*/
+    text-decoration-color: #e8fdff
+
+ }
+
+
+
+
+

@@ -1,0 +1,22 @@
+#nav-bar {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, red, #00a087);
+  /*#00382f*/
+  color: #e8fdff;
+  padding: 0px 2em;
+}
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin-right: 10px; }
+
+#nav-bar .header {
+  float: left;
+  font-size: 200%;
+  line-height: 200%; }
