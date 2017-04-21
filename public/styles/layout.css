@@ -17,8 +17,7 @@ html {
 
 body {
   margin: 5;
-  color: #244751;
-  background-color: #eee;
+  background-color: black;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -28,11 +27,12 @@ body {
  main {
 
     width: 450px;
-    margin: 140px auto;
-    color: black;
-    border: 1px solid gray;
-    background-color: white;
+    margin: 120px auto;
+    color: silver;
+    border: 3px solid dimgray ;
+    background-color: darkslateblue;
     padding: 10px;
+    border-radius: 80px 80px 20px 20px;
     /*text-decoration: underline;*/
     text-decoration-color: #e8fdff
 

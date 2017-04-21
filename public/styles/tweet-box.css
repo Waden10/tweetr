@@ -1,58 +1,70 @@
 article {
-  margin: 0 auto;
-  background-color: white;
-  padding: 15px;
-  margin-top: 50px;
+  flex-grow: 1;
+  flex-direction: row;
+  /*height: 250px;*/
+  /*margin: auto;*/
+  background-color: slateblue;
+  padding: 45px 0px 0px 0px;
+  margin-top: 90px;
   width: 100%;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px 1px;
+  border-radius: 25px 25px 15px 15px;
+  box-shadow: indianred 0px 1px 70px 20px;
   opacity: 0.5;
-}
-
-
+  overflow: auto;
+  }
 
 article:hover{
   opacity: 1;
+  box-shadow: indianred 0px 5px 70px 20px;
+
 }
 /*/////////////////////////////////////*/
 
 .tweet .tweet-content {
-  height: 100px;
-  padding-top: 40px;
-  font-size: 50%;
+  flex-grow: 1;
+  /*height: 100px;
+  padding-top: 40px;*/
+  font-size: large;
 }
 
 /*////////////////////////////////////*/
 
 header {
-  height: 80px;
-  margin-top: -15px;
-  margin-left: -15px;
-  margin-right: -15px;
+  flex-grow: 0;
+  height: 120px;
+  margin-top: -45px;
+  background: linear-gradient(360deg, darkslateblue 20%, slateblue , darkred);
+  /*margin-left: -15px;
+  margin-right: -15px;*/
   background-color: lightgrey;
-  border-radius: 15px;
-}
-
-.userimg {
-  float: left;
-  padding: 5px;
-  width: 80px;
-  border-radius: 15px;
-}
-
-
-.username {
-  float: left;
-  /*height: 30px;
-  padding-left: : 5px;*/
-  font-weight: bolder;
+  border-radius: 5px 5px 0px 0px;
+  /*overflow: auto;*/
 }
 
 .handle {
   float: right;
-  padding-right: 5px;
+  padding-top: 35px;
+  padding-right: 10px;
 }
 
+.avatar {
+  float: left;
+  padding: 5px;
+  width: 80px;
+  height: 80px;
+  border-radius: 25px 25px 15px 15px;
+}
+
+h3.username {
+  overflow: auto;
+  float: left;
+  height: 35px;
+  margin: 10px;
+    /*padding-left: 25px;*/
+  font-weight: bolder;
+  font-size: xx-large;
+
+}
 
 /*////////////////////////////////////////////////*/
 
@@ -60,35 +72,57 @@ header {
 
 
 footer {
-  border-top: 1px solid lightgrey;
-  height: 21px;
-  margin-left: -15px;
-  margin-right: -15px;
-  position: relative;
-}
-
-.date {
-  font-size: 85%;
+  opacity: 0;
+  flex-grow: 0;
+  border-top: 1px solid indianred;
+  padding-top: 15px; 
   padding-left: 10px;
+  float: left;
+  width: 100%;
+  font-size: 100%; 
+  height: 45px;
 }
 
-.item {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.fa-flag {
-  margin-right: 2px;
-  margin-left: 2px;
-}
-
-.fa-retweet {
-  margin-right: 2px;
-  margin-left: 2px;
+.icons {
+  float: right;
+  opacity: 0;
 }
 
 .fa-heart {
-  margin-right: 2px;
-  margin-left: 2px;
+padding-right: 10px; 
+color: crimson;
+/*padding-left: 5px;*/
 }
+
+.fa-star{
+  padding-right: 10px;
+  color: gold;
+}
+
+.fa-retweet {
+  padding-right: 10px;
+  color: limegreen;
+}
+
+article:hover .icons {
+  opacity: 1;
+}
+
+article:hover footer{
+  opacity: 1;
+}
+
+.p {
+  padding: 30px;
+  margin: auto;
+  font-size: x-large;
+}
+
+.timestamp {
+  float:left;
+}
+
+
+
+
+
