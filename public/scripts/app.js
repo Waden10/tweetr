@@ -3,14 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-  var data = [
+var data = [
   {
     "user": {
       "name": "Newton",
       "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+        "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+        "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
       },
       "handle": "@SirIsaac"
     },
@@ -23,9 +23,9 @@
     "user": {
       "name": "Descartes",
       "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+        "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+        "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
       },
       "handle": "@rd" },
     "content": {
@@ -37,9 +37,9 @@
     "user": {
       "name": "Johann von Goethe",
       "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+        "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+        "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
       },
       "handle": "@johann49"
     },
@@ -47,77 +47,44 @@
       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
     },
     "created_at": 1461113796368
-  }];
+  }
+];
 
 
- function timestamp(date) {
-    var seconds = Math.floor((new Date() - date) / 1000);
-    var interval = Math.floor(seconds / 31536000);
-    if (interval > 1) {
-        return interval + " years";
-    }
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
-        return interval + " months";
-    }
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-        return interval + " days";
-    }
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-        return interval + " hours";
-    }
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) {
-        return interval + " minutes";
-    }
-    return Math.floor(seconds) + " seconds";
+function timestamp(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+    return interval + " years";
   }
 
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
 
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
 
-$(function() {
-  $('form').on('submit', function(event) {
-    event.preventDefault();
-    $userinput = $("textarea").val();
-    if(!($userinput)) {
-      alert("Must enter valid Tweet");
-   } else if ($userinput.length > 140) {
-        alert("Exceeded 140 characters")
-    } else {
-     $tweet = $("textarea").serialize();
-     $.ajax ({
-       url: '/tweets',
-       data: $tweet,
-       method: 'POST',
-       success: function (tweet) {
-         loadTweets();
-       }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
 
-     })
-    }
-  })
-});
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
 
-  $(function() {
-    let $compose = $("button");
-    $compose.click(function() {
-      $(".new-tweet").slideToggle(400, function(){
-        $("form textarea").focus();
-      });
-    });
-  });
-
-
-function renderTweets(tweets) {
-  let tweetContainer = $('#tweets-container');
-  tweetContainer.empty();
-  tweets.forEach((tweet) => {
-    var newTweetHtml = createTweetElement(tweet);
-    tweetContainer.prepend(newTweetHtml);
-  });
+  return Math.floor(seconds) + " seconds";
 }
+
+  
+
+
+
 
 function createTweetElement(tweet) {
   //header stuff
@@ -129,13 +96,13 @@ function createTweetElement(tweet) {
   
   //icons
   let $footer = $('<footer/>').addClass("footer");
-  let $star = $(`<i class='fa fa-star'></i>`)
+  let $star = $(`<i class='fa fa-star'></i>`);
   let $icons = $('<div/>').addClass("icons");
   //footer
   let $retweet = $('<i/>').addClass("fa fa-retweet");
   let $heart = $('<i/>').addClass("fa fa-heart");
   let $timestamp = $('<div/>', { text: timestamp(tweet.created_at)}).addClass("date");
-  $footer.append([$icons, $timestamp])
+  $footer.append([$icons, $timestamp]);
   $icons.append([$star, $retweet, $heart]);
   
   //tweet text
@@ -151,18 +118,58 @@ function createTweetElement(tweet) {
 
   return $article.get();
   
-};
+}
+
+function renderTweets(tweets) {
+  let tweetContainer = $('#tweets-container');
+  tweetContainer.empty();
+  tweets.forEach((tweet) => {
+    var newTweetHtml = createTweetElement(tweet);
+    tweetContainer.prepend(newTweetHtml);
+  });
+}
+
+$(function() {
+  let $compose = $("button");
+  $compose.click(function() {
+    $(".new-tweet").slideToggle(400, function(){
+      $("form textarea").focus();
+    });
+  });
+});
 
 function loadTweets() {
-    $.ajax({
-          url: '/tweets',
-          method: 'GET',
-          success: function (tweets) {
-            renderTweets(tweets);
-          }
-        })
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    success: function (tweets) {
+      renderTweets(tweets);
+    }
+  });
 }
 loadTweets();
+
+$(function() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    $userinput = $("textarea").val();
+    if(!($userinput)) {
+      alert("Must enter valid Tweet");
+    } else if ($userinput.length > 140) {
+      alert("Exceeded 140 characters");
+    } else {
+      $tweet = $("textarea").serialize();
+      $.ajax({
+        url: '/tweets',
+        data: $tweet,
+        method: 'POST',
+        success: function (tweet) {
+          loadTweets();
+        }
+      });
+    }
+  });
+});
 
 
 
